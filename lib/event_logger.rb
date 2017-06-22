@@ -13,6 +13,7 @@ class EventLogger
 
   def initialize
     @logger = Logger.new(STDOUT)
+    @logger.formatter = proc { |_severity, _datetime, progname, msg| "%s\n" % msg }
     @mapping = nil
   end
 
